@@ -29,7 +29,7 @@ app = Flask(__name__)
 
 
     # Connect to the Redis database
-db = redis.Redis(host='mydb', port=6379, decode_responses=True)
+db = redis.Redis(host='mydb', port=6379)
 
 @app.route('/')
 def hello_world():
