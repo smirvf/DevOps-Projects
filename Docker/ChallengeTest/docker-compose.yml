@@ -10,3 +10,18 @@ services:
     image: redis:latest
     ports:
       - "6379:6379"
+
+
+# x-defaults: &defaults
+#   restart: always
+#   logging:
+#     driver: json-file
+
+# services:
+#   app:
+#     <<: *defaults
+#     image: my-app
+
+#   worker:
+#     <<: *defaults
+#     image: my-worker
