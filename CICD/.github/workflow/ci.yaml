@@ -1,0 +1,12 @@
+name: Testing CICD Workflow
+
+on: [push]
+
+jobs: 
+  builds:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout code
+    - uses: action/checkout@v2
+    - name: We are testing this workflow
+    - run: echo 'Hello world!'
