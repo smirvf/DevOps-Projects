@@ -1,13 +1,23 @@
-name: Testing CICD Workflow
+name: Terraform CI
 
-on: [push]
+on:
+  push:
+    branches: [ main ]
 
 jobs:
-  builds:
-    runs-on: ubuntu-latest
+  lint:
+    runs-on: ubuntu-latest   # brand-new VM each time
+
     steps:
+      # 1) Checkout repo into the VM
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: We are testing this workflow
-        run: echo "Hello world!"
+      # 2) Install TFLint (Terraform linter)
+      - name: Install TFLint
+        run: |
+          curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+
+      # 3) Run TFLint against Terraform configs
+      - name: Run TFLint
+        run: tflint
