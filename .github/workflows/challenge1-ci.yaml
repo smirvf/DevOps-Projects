@@ -2,7 +2,13 @@
 
 name: Publish Docker image
 
-on: [push]
+on:
+  push:
+    paths:
+      - "CICD/challenge1/**"
+      - ".github/workflows/challenge1-ci.yml"
+
+  workflow_dispatch: {}
 
 jobs:
   push_to_registry:
