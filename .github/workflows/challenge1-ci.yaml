@@ -8,7 +8,7 @@ on:
       - "CICD/Challenges/Challenge1**"
       - ".github/workflows/challenge1-ci.yml"
 
-  workflow_dispatch: {}
+#  workflow_dispatch: {}
 
 jobs:
   push_to_registry:
