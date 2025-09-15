@@ -9,3 +9,5 @@ def hello_world():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5002)
+
+# Placeholder text to allow challenge-ci.yaml to run
