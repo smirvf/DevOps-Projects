@@ -1,0 +1,38 @@
+# Docker Image Push Workflow to DockerHub
+
+name: Publish Docker image
+
+on:
+  push:
+    paths:
+      - "CICD/Challenges/Challenge2/**"
+
+#  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repo
+      uses: actions/checkout@v5
+
+    - name: build python
+      uses: actions/set-up-python@v2
+      with:
+        python-version: 3.13.3
+
+    - name: install dependencies
+      run: |
+        cd CICD/Challenges/Challenge2/
+        python3 -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          
+    - name: run tests
+      run: |
+        cd CICD/Challenges/Challenge2/
+        python3 -m unittest discover
+
+    - name: checking success
+      run: echo 'tests passed'
+      if: success()
