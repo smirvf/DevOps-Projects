@@ -1,20 +1,10 @@
-DevOps-Projects/Terraform/.terraform/
+# Ignore Terraform build artifacts
+Terraform/.terraform/
+Terraform/terraform.tfstate
+Terraform/terraform.tfstate.backup
+Terraform/*.tfstate
+Terraform/*.tfstate.*
+Terraform/*.tfvars
 
-**/.terraform/*
-*.tfstate
-*.tfstate.*
-crash.log
-crash.*.log
-override.tf
-override.tf.json
-*_override.tf
-*_override.tf.json
-EOF**/.terraform/*
-*.tfstate
-*.tfstate.*
-crash.log
-crash.*.log
-override.tf
-override.tf.json
-*_override.tf
-*_override.tf.json
+# Optional: ignore lock file if you don’t want pinned providers
+ Terraform/.terraform.lock.hcl
